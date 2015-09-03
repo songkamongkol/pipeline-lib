@@ -1,12 +1,11 @@
 
-# Docker Registry Proxy Configuration (Draft)
-----
+# Docker Registry Cache Configuration (Draft)
 
 This repo contains configuration files and instruction to create docker registry proxy/cache server
 
 
 
-## Docker registry proxy Components
+## Docker Registry Cache Components
 Base OS: debian jessie
 
 * squid ([squid3](http://http://www.squid-cache.org/))
@@ -37,12 +36,12 @@ Base OS: debian jessie
         systemctl restart nginx
 
 
-## Registry Server update
+## Registry Server Update
 Restart registry container (registry:v2) and ensure that */etc/docker/registry/config.yml* has the same content as this [config.yml](https://github.com/songkamongkol/orion-salt/blob/corp/config.yml) (via volume expose or config file variable overrides) 
 
 >*NOTE:* **redirect** *must be disabled*
 
-## Docker client Setup (For Testing)
+## Docker Client Setup (For Testing)
 1. Add a line in */etc/hosts* to direct DNS name of the registry server to the IP of the proxy server 
 
         10.180.106.17   registry.oriontest.net
@@ -52,4 +51,4 @@ Restart registry container (registry:v2) and ensure that */etc/docker/registry/c
 
         docker pull registry.oriontest.net/traffic-center
 
->*Note: in the production environment, step 1 will be handled by Route53*
+>*NOTE: in the production environment, step 1 will be handled by Route53*
