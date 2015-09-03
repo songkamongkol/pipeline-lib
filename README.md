@@ -12,7 +12,6 @@ Base OS: debian jessie
 * [nginx](http://nginx.org/en/)
 
 ## Docker Proxy Setup
-----
 
 1. Install squid
 
