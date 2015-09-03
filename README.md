@@ -29,7 +29,9 @@ Base OS: debian jessie
 
 4. Replace */etc/nginx.conf* with [nginx.conf](https://github.com/songkamongkol/orion-salt/blob/corp/nginx.conf)
 
-5. Restart nginx and squid3
+5. Copy the cert and key files from the registry server and place them in */etc/ssl/private/cache.crt* and */etc/ssl/private/cache.key* respectively
+
+6. Restart nginx and squid3
 
         systemctl restart squid3
         systemctl restart nginx
