@@ -51,3 +51,9 @@ Restart registry container (registry:v2) and ensure that */etc/docker/registry/c
         docker pull registry.oriontest.net/traffic-center
 
 >*NOTE: in the production environment, step 1 will be handled by Route53*
+
+## Route53 Update for Docker Proxy
+
+![Default Registry](r53_change_1.jpg)
+![Calabasas Dockerr Proxy](r53_change_2.jpg)
+![RTP Dockerr Proxy](r53_change_3.jpg)
