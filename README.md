@@ -57,3 +57,4 @@ Restart registry container (registry:v2) and ensure that */etc/docker/registry/c
 ![Default Registry](r53_change_1.jpg)
 ![Calabasas Dockerr Proxy](r53_change_2.jpg)
 ![RTP Dockerr Proxy](r53_change_3.jpg)
+[top](# Docker Registry Cache Configuration (Draft))
