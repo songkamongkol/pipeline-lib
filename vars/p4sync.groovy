@@ -10,14 +10,15 @@ def call(Map config = [:]) {
   echo "Config view: ${config.view}"
   echo "Config credentialsId: ${config.credentialsId}"
   // needs config.view and config.credentialID
-  //if (!config.view) {
-  //    error("You must provide a view spec.")
-  //}
+  /*
+  if (!config.view) {
+      error("You must provide a view spec.")
+  }
   
   if (!config.credentialsId) {
       error("You must provide p4 credential.")
   }
-  
+  */
   def jenkinsWorkspaceName = "${JOB_NAME}-${STAGE_NAME}-${NODE_NAME}"
   ws(jenkinsWorkspaceName) {
     echo "[INFO] [p4] Running in ${pwd()}"
