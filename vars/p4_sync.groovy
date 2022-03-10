@@ -36,7 +36,8 @@ def call(Map config = [:]) {
   ]
 
   defaultConfig.view = viewSpecWithWorkspace(config.view, defaultConfig.workspacePattern)
-
+  defaultConfig.credentialsId = config.credentialsId
+ 
   // do the actual sync
   syncConfig(defaultConfig)
   
