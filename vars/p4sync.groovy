@@ -5,7 +5,7 @@ import groovy.transform.Field
 @Field currentChangelist = ''
 
 
-def call(Map config = [:], Closure body) {
+def p4Sync(Map config = [:], Closure body) {
 
   echo "Config view: ${config.view}"
   echo "Config credentialsId: ${config.credentialsId}"
