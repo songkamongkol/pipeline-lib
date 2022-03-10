@@ -16,10 +16,10 @@ def p4sync(Map config = [:]) {
   def jenkinsWorkspaceName = "${JOB_NAME}-${STAGE_NAME}-${NODE_NAME}"
   ws(jenkinsWorkspaceName) {
     echo "[INFO] [p4] Running in ${pwd()}"
-    echo "[INFO] [p4] Using P4 Workspace ${p4WorkspaceName}"
+    echo "[INFO] [p4] Using P4 Workspace ${jenkinsWorkspaceName}"
 
     def defaultConfig = [
-        workspacePattern: p4WorkspaceName,
+        workspacePattern: jenkinsWorkspaceName,
         syncType: 'AutoCleanImpl',
         stream: '',
         view: '',
