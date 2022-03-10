@@ -30,7 +30,7 @@ def call(Map config = [:]) {
         clobber: true,
     ]
 
-    defaultConfig.view = viewSpecWithWorkspace(config.view, config.workspacePattern)
+    defaultConfig.view = viewSpecWithWorkspace(config.view, defaultConfig.workspacePattern)
 
     // do the actual sync
     syncConfig(defaultConfig)
