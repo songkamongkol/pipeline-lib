@@ -5,7 +5,7 @@ import groovy.transform.Field
 @Field currentChangelist = ''
 
 
-def p4Sync(Map config = [:], Closure body) {
+def call(Map config = [:]) {
 
   echo "Config view: ${config.view}"
   echo "Config credentialsId: ${config.credentialsId}"
@@ -39,11 +39,8 @@ def p4Sync(Map config = [:], Closure body) {
 
     // do the actual sync
     syncConfig(defaultConfig)
-
-    ws(pwd()) {
-      // run the closure in the custom workspace
-      body()
-    }
+    
+    pwd()
   }
 }
 
