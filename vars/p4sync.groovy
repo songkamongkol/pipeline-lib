@@ -38,7 +38,7 @@ def p4sync(Map config = [:]) {
   }
 }
 
-def syncConfig(p4Config) {
+def call(p4Config) {
   // do the actual p4 sync using the p4 plugin
   p4sync(
     credential: p4Config.credentialsId,
