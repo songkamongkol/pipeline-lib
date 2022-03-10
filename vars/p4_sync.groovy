@@ -118,8 +118,8 @@ String viewSpecWithWorkspace(viewspec, workspacePattern) {
     // __WORKSPACE__ is a magic string we find and replace so that pipelines don't
     // have to hardcode their workspace path
     echo "[INFO] [viewSpecWithWorkspace] Performing string replacement"
-    echo "view spec: ${p4Viewspec}"
     p4Viewspec = p4Viewspec.replace("__WORKSPACE__", workspacePattern)
+    echo "view spec now: ${p4Viewspec}"
   }
   p4Viewspec
 }
