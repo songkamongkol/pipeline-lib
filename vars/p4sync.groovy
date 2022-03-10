@@ -5,11 +5,11 @@ import groovy.transform.Field
 @Field currentChangelist = ''
 
 
-def p4sync(Map config = [:]) {
+def call(Map config = [:]) {
 
   echo "Config: ${config}"
   // needs config.view and config.credentialID
-  if (!config.view && !config.credential) {
+  if (!config.view && !config.credentialsId) {
       error("You must provide either a view spec and p4 credential.")
   }
   
@@ -39,7 +39,7 @@ def p4sync(Map config = [:]) {
   }
 }
 
-def call(Map p4Config = [:]) {
+def syncConfig(Map p4Config = [:]) {
   // do the actual p4 sync using the p4 plugin
   p4sync(
     credential: p4Config.credentialsId,
