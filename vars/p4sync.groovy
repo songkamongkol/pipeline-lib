@@ -20,29 +20,28 @@ def call(Map config = [:]) {
   }
   */
   def jenkinsWorkspaceName = "${JOB_NAME}-${STAGE_NAME}-${NODE_NAME}"
-  ws(jenkinsWorkspaceName) {
-    echo "[INFO] [p4] Running in ${pwd()}"
-    echo "[INFO] [p4] Using P4 Workspace ${jenkinsWorkspaceName}"
+  echo "[INFO] [p4] Running in ${pwd()}"
+  echo "[INFO] [p4] Using P4 Workspace ${jenkinsWorkspaceName}"
 
-    def defaultConfig = [
-        workspacePattern: jenkinsWorkspaceName,
-        syncType: 'AutoCleanImpl',
-        stream: '',
-        view: '',
-        quiet: true,
-        have: true,
-        charset: 'utf8',
-        parallel: false,
-        clobber: true,
-    ]
+  def defaultConfig = [
+      workspacePattern: jenkinsWorkspaceName,
+      syncType: 'AutoCleanImpl',
+      stream: '',
+      view: '',
+      quiet: true,
+      have: true,
+      charset: 'utf8',
+      parallel: false,
+      clobber: true,
+  ]
 
-    defaultConfig.view = viewSpecWithWorkspace(config.view, defaultConfig.workspacePattern)
+  defaultConfig.view = viewSpecWithWorkspace(config.view, defaultConfig.workspacePattern)
 
-    // do the actual sync
-    syncConfig(defaultConfig)
-    
-    pwd()
-  }
+  // do the actual sync
+  syncConfig(defaultConfig)
+  
+  pwd()
+
 }
 
 def syncConfig(Map p4Config = [:]) {
