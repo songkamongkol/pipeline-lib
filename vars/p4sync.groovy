@@ -5,13 +5,13 @@ import groovy.transform.Field
 @Field currentChangelist = ''
 
 
-def call(Map config = [:]) {
+def call(Map config = [:], Closure body) {
 
   echo "Config view: ${config.view}"
   echo "Config credentialsId: ${config.credentialsId}"
   // needs config.view and config.credentialID
   if (!config.view) {
-      error("You must provide both a view spec.")
+      error("You must provide a view spec.")
   }
   
   if (!config.credentialsId) {
@@ -40,7 +40,10 @@ def call(Map config = [:]) {
     // do the actual sync
     syncConfig(defaultConfig)
 
-    pwd()
+    ws(pwd()) {
+      // run the closure in the custom workspace
+      body()
+    }
   }
 }
 
