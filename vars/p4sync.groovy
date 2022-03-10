@@ -29,7 +29,7 @@ def p4sync(Map config = [:]) {
         clobber: true,
     ]
 
-    p4Config.view = viewSpecWithWorkspace(p4Config.view, p4Config.workspacePattern)
+    defaultConfig.view = viewSpecWithWorkspace(config.view, config.workspacePattern)
 
     // do the actual sync
     syncConfig(defaultConfig)
@@ -38,7 +38,7 @@ def p4sync(Map config = [:]) {
   }
 }
 
-def call(p4Config) {
+def call(Map p4Config = [:]) {
   // do the actual p4 sync using the p4 plugin
   p4sync(
     credential: p4Config.credentialsId,
