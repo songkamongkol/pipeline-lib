@@ -104,12 +104,14 @@ String viewSpecWithWorkspace(viewspec, workspacePattern) {
   if (viewspec) {
     // Allow viewspec to be specified as an array. If so, join and insert workspace name
     if ([Collection, Object[]].any { it.isAssignableFrom(viewspec.getClass()) }) {
+      echo "[INFO] [viewSpecWithWorkspace] Discover view spec as array"
       p4Viewspec = viewspec.join("\n")
     } else {
       p4Viewspec = viewspec
     }
     // __WORKSPACE__ is a magic string we find and replace so that pipelines don't
     // have to hardcode their workspace path
+    echo "[INFO] [viewSpecWithWorkspace] Performing string replacement"
     p4Viewspec = p4Viewspec.replace("__WORKSPACE__", workspacePattern)
   }
   p4Viewspec
