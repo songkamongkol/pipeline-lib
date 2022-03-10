@@ -7,6 +7,7 @@ import groovy.transform.Field
 
 def p4sync(Map config = [:]) {
 
+  echo "Config: ${config}"
   // needs config.view and config.credentialID
   if (!config.view && !config.credentialsId) {
       error("You must provide either a view spec and p4 credential.")
